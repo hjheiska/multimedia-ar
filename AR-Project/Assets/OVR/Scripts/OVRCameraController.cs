@@ -172,7 +172,8 @@ public class OVRCameraController : OVRComponent
 		UpdateCameras();
 		
 		SetMaximumVisualQuality();
-		
+		VerticalFOV = 80;
+		LensCorrection = false;
 	}
 		
 	// Update 
@@ -180,6 +181,24 @@ public class OVRCameraController : OVRComponent
 	{
 		base.Update();		
 		UpdateCameras();
+
+
+		if (Input.GetKey ("g")) {
+			LensCorrection = true;
+			}
+		if (Input.GetKey ("b")) {
+			LensCorrection = false;
+		}	
+		
+		if (Input.GetKey ("v")) {
+			VerticalFOV += 1f;
+		}
+		if (Input.GetKey ("n")) {
+			VerticalFOV -= 1f;
+		}	
+
+
+
 	}
 		
 	// InitCameraControllerVariables
