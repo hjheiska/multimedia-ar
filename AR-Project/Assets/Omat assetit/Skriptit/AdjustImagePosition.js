@@ -1,7 +1,7 @@
 ﻿#pragma strict
 
 function Start () {
-	transform.position.x = 8;
+	transform.position.x = 4;
 }
 
 function Update () {
