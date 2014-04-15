@@ -201,6 +201,18 @@ public class OVRCameraController : OVRComponent
 
 	}
 		
+	void OnGUI () {
+		// Make a background box
+		string correction = "";
+		if (LensCorrection)
+			correction = "yes";
+		else 
+			correction = "no";
+		
+		GUI.Box(new Rect(10,10,100,90), "Correction: " + correction + "\n\r" + "FOV: " + VerticalFOV);
+	
+	}
+
 	// InitCameraControllerVariables
 	// Made public so that it can be called by classes that require information about the
 	// camera to be present when initing variables in 'Start'
