@@ -6,6 +6,7 @@ public var idleAnimation : AnimationClip;
 public var walkAnimation : AnimationClip;
 public var runAnimation : AnimationClip;
 public var jumpPoseAnimation : AnimationClip;
+public var idleSpecialAnimation : AnimationClip;
 
 public var walkMaxAnimationSpeed : float = 0.75;
 public var trotMaxAnimationSpeed : float = 1.0;
@@ -334,7 +335,11 @@ function Update() {
 		else 
 		{
 			if(controller.velocity.sqrMagnitude < 0.1) {
-				_animation.CrossFade(idleAnimation.name);
+				if (Random.Range(0f,1f) > 0.995f){
+					_animation.Play(idleSpecialAnimation.name);
+				} else if (!_animation.IsPlaying(idleSpecialAnimation.name)){
+					_animation.CrossFade(idleAnimation.name);
+				}
 			}
 			else 
 			{

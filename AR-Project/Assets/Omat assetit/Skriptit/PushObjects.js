@@ -5,6 +5,8 @@ var idlingSound : AudioClip;
 var audio1 : AudioSource; 
 var audio2 : AudioSource;
 var audio3 : AudioSource;
+var pushAnimation : AnimationClip;
+var _animation : Animation;
 function Start () {
 	QualitySettings.vSyncCount = 0;
 		
@@ -20,6 +22,8 @@ function Start () {
     audio2.volume = 0.9;
     audio3.clip = idlingSound;
 	audio3.volume = 0.9;
+	
+	_animation = GetComponent(Animation);
 }
 
 function Update () {
@@ -49,7 +53,7 @@ function OnControllerColliderHit (hit : ControllerColliderHit)
     // Apply the push
     body.velocity = pushDir * pushPower;
    
-     
+    _animation.Play(pushAnimation.name); 
      
 	if(!audio1.isPlaying) audio1.Play();
 	
