@@ -7,6 +7,8 @@ public var walkAnimation : AnimationClip;
 public var runAnimation : AnimationClip;
 public var jumpPoseAnimation : AnimationClip;
 public var idleSpecialAnimation : AnimationClip;
+public var shatterAnimation : AnimationClip;
+public var pushAnimation : AnimationClip;
 
 public var walkMaxAnimationSpeed : float = 0.75;
 public var trotMaxAnimationSpeed : float = 1.0;
@@ -14,7 +16,7 @@ public var runMaxAnimationSpeed : float = 1.0;
 public var jumpAnimationSpeed : float = 1.15;
 public var landAnimationSpeed : float = 1.0;
 
-private var _animation : Animation;
+public var _animation : Animation;
 
 enum CharacterState {
 	Idle = 0,
@@ -47,6 +49,8 @@ var trotAfterSeconds = 3.0;
 
 var canJump = true;
 
+var shatterSpeedThreshold = -7;
+
 private var jumpRepeatTime = 0.05;
 private var jumpTimeout = 0.15;
 private var groundedTimeout = 0.25;
@@ -57,7 +61,7 @@ private var lockCameraTimer = 0.0;
 // The current move direction in x-z
 private var moveDirection = Vector3.zero;
 // The current vertical speed
-private var verticalSpeed = 0.0;
+var verticalSpeed = 0.0;
 // The current x-z move speed
 private var moveSpeed = 0.0;
 
@@ -396,6 +400,14 @@ function OnControllerColliderHit (hit : ControllerColliderHit )
 //	Debug.DrawRay(hit.point, hit.normal);
 	if (hit.moveDirection.y > 0.01) 
 		return;
+		
+	// hitting the ground too hard shatters the character
+	if (hit.moveDirection.y < -0.01 && verticalSpeed < shatterSpeedThreshold){
+		if(_animation) {
+				_animation.CrossFade(shatterAnimation.name);	
+				disableCharacter();
+		}
+	}
 }
 
 function GetSpeed () {
@@ -441,5 +453,17 @@ function IsGroundedWithTimeout ()
 function Reset ()
 {
 	gameObject.tag = "Player";
+}
+
+function enableCharacter()
+{
+	_animation = GetComponent(Animation);
+	isControllable = true;
+}
+
+function disableCharacter()
+{
+	_animation = null;
+	isControllable = false;
 }
 
