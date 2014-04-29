@@ -6,7 +6,7 @@ function Start () {
 
 function Update () {
 	
-	
+	/*
 	if(Input.GetKey ("a")) {
 		transform.position.x += 0.1;
 	}
@@ -40,6 +40,6 @@ function Update () {
 	if(Input.GetKey ("f")) {
 		transform.localScale.z -= 0.1;
 	}
-	
+	*/
 	
 }

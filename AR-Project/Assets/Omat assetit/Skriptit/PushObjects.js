@@ -26,7 +26,7 @@ function Start () {
 }
 
 function Update () {
-	shootRandomBall();
+	//shootRandomBall();
 }
 
     // this script pushes all rigidbodies that the character touches
