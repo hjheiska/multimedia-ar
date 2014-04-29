@@ -50,8 +50,9 @@ function OnControllerColliderHit (hit : ControllerColliderHit)
     // then you can also multiply the push velocity by that.
      
     // Apply the push
+    if(body.tag == "pushable") {
     body.velocity = pushDir * pushPower;
-   	
+   	}
    	// play animation
    	if (controller._animation){
     	controller._animation.Play(controller.pushAnimation.name); 

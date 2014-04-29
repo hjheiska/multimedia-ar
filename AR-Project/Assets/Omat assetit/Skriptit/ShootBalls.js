@@ -13,7 +13,7 @@ function Update () {
 if ( Input.GetButton ("Fire1")) {
 	
 	var currentTime = Time.time;
-	if(currentTime - lastTime > 0.3) { 
+	if(currentTime - lastTime > 0.01) { 
 		var clone = Instantiate(projectile, transform.position, transform.rotation);
 		clone.velocity = transform.TransformDirection( Vector3 (0, 0, speed));
 		Destroy (clone.gameObject, 30);
