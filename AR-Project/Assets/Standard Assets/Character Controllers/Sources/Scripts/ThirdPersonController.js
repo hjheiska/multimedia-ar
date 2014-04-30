@@ -137,6 +137,7 @@ function UpdateSmoothedMovementDirection ()
 	// Forward vector relative to the camera along the x-z plane	
 	var forward = cameraTransform.TransformDirection(Vector3.forward);
 	forward.y = 0;
+	forward = Vector3(0,0,1);
 	forward = forward.normalized;
 
 	// Right vector relative to the camera

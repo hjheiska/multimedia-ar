@@ -2,8 +2,8 @@
 
 function Awake () {
 	// 0 for no sync, 1 for panel refresh rate, 2 for 1/2 panel rate
-	QualitySettings.vSyncCount = 0;
-	Application.targetFrameRate = 1;
+	//QualitySettings.vSyncCount = 0;
+	//Application.targetFrameRate = 1;
 }
 /*
 function OnGUI () {

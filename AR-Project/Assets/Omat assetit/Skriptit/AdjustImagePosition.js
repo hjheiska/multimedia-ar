@@ -4,7 +4,10 @@ var originalY = 0f;
 var originalZ = 0f;
 	
 function Start () {
-	transform.position.x = 4;
+	transform.position.x = -4.1;
+	transform.position.y = 1.3;
+	//transform.position.z = 40;
+	
 	originalX = transform.position.x;
 	originalY = transform.position.y;
 	originalZ = transform.position.z;
