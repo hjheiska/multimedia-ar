@@ -146,7 +146,9 @@ function UpdateSmoothedMovementDirection ()
 
 	var v = Input.GetAxisRaw("Vertical");
 	var h = Input.GetAxisRaw("Horizontal");
-
+	if(h != 0) v = 0;
+	
+	
 	// Are we moving backwards or looking backwards
 	if (v < -0.2)
 		movingBack = true;

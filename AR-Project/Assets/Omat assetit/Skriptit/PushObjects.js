@@ -7,10 +7,10 @@ var audio2 : AudioSource;
 var audio3 : AudioSource;
 private var controller : ThirdPersonController;
 function Start () {
+	/*
 	QualitySettings.vSyncCount = 0;
-		
 	Application.targetFrameRate = 30;
-
+	*/
 	var aSources = GetComponents(AudioSource);
     audio1 = aSources[0];
     audio2 = aSources[1];

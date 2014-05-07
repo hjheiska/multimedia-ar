@@ -173,7 +173,7 @@ public class OVRCameraController : OVRComponent
 		
 		SetMaximumVisualQuality();
 		VerticalFOV = 80;
-		LensCorrection = false;
+		//LensCorrection = false;
 	}
 		
 	// Update 
