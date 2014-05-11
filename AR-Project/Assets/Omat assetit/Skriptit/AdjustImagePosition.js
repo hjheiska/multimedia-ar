@@ -4,8 +4,8 @@ var originalY = 0f;
 var originalZ = 0f;
 	
 function Start () {
-	transform.position.x = 1.3f;
-	transform.position.y = 0.5f;
+	//transform.position.x = 1.3f;
+	//transform.position.y = 0.5f;
 	//transform.position.z = 40;
 	
 	originalX = transform.position.x;
