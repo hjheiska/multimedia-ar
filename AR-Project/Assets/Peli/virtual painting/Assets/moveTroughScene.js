@@ -17,7 +17,6 @@ function Update () {
 	if(Mathf.Abs(h) > 0 || Mathf.Abs(v) > 0) {
 		print (transform.rotation);
 		transform.rotation = cameraObject.transform.rotation;
-		print (transform.rotation);
 		
 		transform.localPosition -= transform.right * h * scale;
 		transform.localPosition -= transform.forward * v * scale;
@@ -26,25 +25,33 @@ function Update () {
 	}
 	
 	var landingObject = GameObject.Find("paintLandingArea");
+	var itemArea = GameObject.Find("itemArea");
 	var cameraOrientationCube = GameObject.Find("cameraOrientationCube");
 	
 	var v2 = Input.GetAxisRaw("alempitatti_v");
 	var h2 = Input.GetAxisRaw("alempitatti_h");
-	
-	var distance = Vector3.Distance(landingObject.transform.position, transform.position);
-	if(Mathf.Abs(h2) > 0 || Mathf.Abs(v2) > 0) {
-		transform.position += transform.forward * distance;
-		cameraOrientationCube.transform.Rotate(Vector3.up* h2); //rotation.y += 0.05f;
-		transform.Rotate(Vector3.up * h2);//.y += 0.05f;
-		transform.position -= transform.forward * distance;
-		/*
-		transform.position += transform.forward * distance;
-		cameraOrientationCube.transform.Rotate(Vector3.forward* v2); //rotation.y += 0.05f;
-		transform.Rotate(Vector3.forward * v2);//.y += 0.05f;
-		transform.position -= transform.forward * distance;
-		*/
+;
+	if(landingObject != null) {
+		var distance = Vector3.Distance(landingObject.transform.position, transform.position);
+		if(Mathf.Abs(h2) > 0 || Mathf.Abs(v2) > 0) {
+			transform.position += transform.forward * distance;
+			cameraOrientationCube.transform.Rotate(Vector3.up* h2); //rotation.y += 0.05f;
+			transform.Rotate(Vector3.up * h2);//.y += 0.05f;
+			transform.position -= transform.forward * distance;
+			/*
+			transform.position += transform.forward * distance;
+			cameraOrientationCube.transform.Rotate(Vector3.forward* v2); //rotation.y += 0.05f;
+			transform.Rotate(Vector3.forward * v2);//.y += 0.05f;
+			transform.position -= transform.forward * distance;
+			*/
+		}
 	}
 	
+	if(itemArea != null) {
+		if(Mathf.Abs(h2) > 0 || Mathf.Abs(v2) > 0) {
+			itemArea.transform.Rotate(Vector3.up* h2);
+		}
+	}
 	var heightChange = Input.GetAxisRaw("etuliipasimet");
 
 	if (Mathf.Abs (heightChange) > 0.1) {
