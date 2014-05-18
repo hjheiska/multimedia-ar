@@ -1,7 +1,7 @@
 ﻿#pragma strict
-var originalX = 0f;
-var originalY = 0f;
-var originalZ = 0f;
+private var originalX = 0f;
+private var originalY = 0f;
+private var originalZ = 0f;
 	
 function Start () {
 	transform.localPosition.x = -0.89f;
@@ -16,19 +16,19 @@ function Start () {
 
 function Update () {
 
-	if(Input.GetKey ("i") || Input.GetKey ("joystick button 0")) {
+	if(Input.GetKey ("i") || Input.GetAxisRaw("d-padi_v") < 0) {
 		transform.localPosition.y += 1;
 		originalY += 1;
 	}
-	if(Input.GetKey ("k") || Input.GetKey ("joystick button 3")) {
+	if(Input.GetKey ("k") || Input.GetAxisRaw("d-padi_v") > 0) {
 		transform.localPosition.y -= 1;
 		originalY -= 1;
 	}
-	if(Input.GetKey ("j") || Input.GetKey ("joystick button 1")) {
+	if(Input.GetKey ("j") || Input.GetAxisRaw("d-padi_h") > 0) {
 		transform.localPosition.x += 1;
 		originalX += 1;
 	}
-	if(Input.GetKey ("l") || Input.GetKey ("joystick button 2")) {
+	if(Input.GetKey ("l") || Input.GetAxisRaw("d-padi_h") < 0) {
 		transform.localPosition.x -= 1;
 		originalX -= 1;
 	}

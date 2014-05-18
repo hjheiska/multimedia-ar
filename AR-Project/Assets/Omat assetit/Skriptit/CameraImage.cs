@@ -9,7 +9,7 @@ public class CameraImage : MonoBehaviour {
 	void Start () {
 		WebCamDevice[] devices = WebCamTexture.devices;
 		if (devices.Length > cameraNumber) {
-			webcamTexture = new WebCamTexture(devices[cameraNumber].name, 1280, 720, 120);
+			webcamTexture = new WebCamTexture(devices[cameraNumber].name, 600, 337, 120);
 			renderer.material.mainTexture = webcamTexture;
 			webcamTexture.Play();
 		} else {

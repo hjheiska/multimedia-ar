@@ -196,9 +196,21 @@ public class OVRCameraController : OVRComponent
 		}
 		if (Input.GetKey ("n")) {
 			VerticalFOV -= 1f;
-		}	
+		}
+		/*
+		var ipdChange = Input.GetAxisRaw("changeIPD");
 
-
+		if (Mathf.Abs (ipdChange) > 0.5) {
+			ipd = ipd + (ipdChange / 100);
+		}
+		*/
+		/*
+		var fovChange = Input.GetAxisRaw("changeFOV");
+		
+		if (Mathf.Abs (fovChange) > 0.5) {
+			VerticalFOV = VerticalFOV + fovChange;
+		}
+		*/
 
 	}
 		
@@ -210,7 +222,7 @@ public class OVRCameraController : OVRComponent
 		else 
 			correction = "no";
 		
-		GUI.Box(new Rect(10,10,100,90), "Correction: " + correction + "\n\r" + "FOV: " + VerticalFOV);
+		GUI.Box(new Rect(10,10,100,90), "Correction: " + correction + "\n\r" + "FOV: " + VerticalFOV+ "\n\r" + "IPD: " + ipd);
 	
 	}
 
