@@ -173,7 +173,7 @@ public class OVRCameraController : OVRComponent
 		
 		SetMaximumVisualQuality();
 		VerticalFOV = 80;
-		ipd = 0.64f;
+		//ipd = 0.64f;
 		//LensCorrection = false;
 	}
 		

@@ -19,6 +19,12 @@ function Start () {
 }
 
 function Update () {
+	if(Input.GetKey ("joystick button 7"))  {
+		var paintballs = GameObject.FindGameObjectsWithTag("paintball"); 
+		for (var obj : GameObject in paintballs)  { 
+			GameObject.Destroy(obj);
+		} 
+	}
 	/*
 	var color_v = Input.GetAxisRaw("alempitatti_v");
 	var color_h = Input.GetAxisRaw("alempitatti_h");

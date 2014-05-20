@@ -27,6 +27,7 @@ function Update () {
 	var landingObject = GameObject.Find("paintLandingArea");
 	var itemArea = GameObject.Find("itemArea");
 	var cameraOrientationCube = GameObject.Find("cameraOrientationCube");
+	var cameraLeft = GameObject.Find("CameraLeft");
 	
 	var v2 = Input.GetAxisRaw("alempitatti_v");
 	var h2 = Input.GetAxisRaw("alempitatti_h");
@@ -34,10 +35,10 @@ function Update () {
 	if(landingObject != null) {
 		var distance = Vector3.Distance(landingObject.transform.position, transform.position);
 		if(Mathf.Abs(h2) > 0 || Mathf.Abs(v2) > 0) {
-			transform.position += transform.forward * distance;
-			cameraOrientationCube.transform.Rotate(Vector3.up* h2); //rotation.y += 0.05f;
-			transform.Rotate(Vector3.up * h2);//.y += 0.05f;
-			transform.position -= transform.forward * distance;
+			transform.position += cameraLeft.transform.forward * distance;
+			cameraOrientationCube.transform.Rotate(Vector3.up* h2 * scale * 10); //rotation.y += 0.05f;
+			transform.Rotate(Vector3.up * h2 * scale * 10);//.y += 0.05f;
+			transform.position -= cameraLeft.transform.forward * distance;
 			/*
 			transform.position += transform.forward * distance;
 			cameraOrientationCube.transform.Rotate(Vector3.forward* v2); //rotation.y += 0.05f;
@@ -49,7 +50,11 @@ function Update () {
 	
 	if(itemArea != null) {
 		if(Mathf.Abs(h2) > 0 || Mathf.Abs(v2) > 0) {
-			itemArea.transform.Rotate(Vector3.up* h2);
+			itemArea.transform.Rotate(Vector3.up* h2 * scale * 10);
+		}
+		
+		if(Input.GetKey ("joystick button 7"))  {
+			transform.position = Vector3(0, 10, -13);
 		}
 	}
 	var heightChange = Input.GetAxisRaw("etuliipasimet");

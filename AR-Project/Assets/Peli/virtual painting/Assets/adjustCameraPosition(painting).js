@@ -4,9 +4,15 @@ private var originalY = 0f;
 private var originalZ = 0f;
 	
 function Start () {
-	transform.localPosition.x = -0.89f;
-	//transform.localPosition.y = 19f;
+	transform.localPosition.x = 12f;
+	transform.localPosition.y = 2.6f - 10.75f;
+	/*
+	transform.localPosition.x = 8.1f;
+	transform.localPosition.y = 4.4f - 10.75f;
+	
+	*/
 	//transform.localPosition.z = 40;
+	
 	
 	originalX = transform.position.x;
 	originalY = transform.position.y;
@@ -17,20 +23,20 @@ function Start () {
 function Update () {
 
 	if(Input.GetKey ("i") || Input.GetAxisRaw("d-padi_v") < 0) {
-		transform.localPosition.y += 1;
-		originalY += 1;
+		transform.localPosition.y += 0.3;
+		originalY += 0.3;
 	}
 	if(Input.GetKey ("k") || Input.GetAxisRaw("d-padi_v") > 0) {
-		transform.localPosition.y -= 1;
-		originalY -= 1;
+		transform.localPosition.y -= 0.3;
+		originalY -= 0.3;
 	}
 	if(Input.GetKey ("j") || Input.GetAxisRaw("d-padi_h") > 0) {
-		transform.localPosition.x += 1;
-		originalX += 1;
+		transform.localPosition.x += 0.3;
+		originalX += 0.3;
 	}
 	if(Input.GetKey ("l") || Input.GetAxisRaw("d-padi_h") < 0) {
-		transform.localPosition.x -= 1;
-		originalX -= 1;
+		transform.localPosition.x -= 0.3;
+		originalX -= 0.3;
 	}
 	
 }
