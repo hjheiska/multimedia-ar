@@ -1,7 +1,7 @@
 
 // Require a character controller to be attached to the same game object
 @script RequireComponent(CharacterController)
-
+public var wormController : boolean = false;
 public var idleAnimation : AnimationClip;
 public var walkAnimation : AnimationClip;
 public var runAnimation : AnimationClip;
@@ -146,6 +146,13 @@ function UpdateSmoothedMovementDirection ()
 
 	var v = Input.GetAxisRaw("Vertical");
 	var h = Input.GetAxisRaw("Horizontal");
+	if(wormController) {
+		if(Input.GetKey ("joystick button 0")) v = -1;
+		if(Input.GetKey ("joystick button 1")) h = 1;
+		if(Input.GetKey ("joystick button 2")) h = -1;
+		if(Input.GetKey ("joystick button 3")) v = 1;
+	}
+	
 	if(Mathf.Abs(h) > Mathf.Abs(v)) v = 0;
 	
 	

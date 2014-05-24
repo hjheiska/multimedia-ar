@@ -18,9 +18,9 @@ function Start () {
     audio1.clip = boxAgainstCreature; 
     audio1.volume = 0.3;
     audio2.clip = bouncingSound;
-    audio2.volume = 0.9;
+    audio2.volume = 0.4;
     audio3.clip = idlingSound;
-	audio3.volume = 0.9;
+	audio3.volume = 0.4;
 	
 	controller = GetComponent(ThirdPersonController);
 }

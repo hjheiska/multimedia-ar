@@ -10,7 +10,7 @@ function Start () {
 }
 
 function Update () {
-	print(timerStarted);
+
 	if(Time.time - timerStarted > 3 && played) {
 			Application.LoadLevel (nextLevel); 
 		}
