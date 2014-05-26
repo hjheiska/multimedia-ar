@@ -12,7 +12,7 @@ function Start () {
 function Update () {
 
 	if(Time.time - timerStarted > 3 && played) {
-			Application.LoadLevel (nextLevel); 
+			//Application.LoadLevel (nextLevel); 
 		}
 }
 

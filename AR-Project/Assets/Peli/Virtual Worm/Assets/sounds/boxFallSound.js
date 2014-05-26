@@ -1,6 +1,6 @@
 ﻿#pragma strict
 var boxFallSound : AudioClip;
-private var played = false;
+var played = false;
 
 function Start () {
 	 audio.clip = boxFallSound;

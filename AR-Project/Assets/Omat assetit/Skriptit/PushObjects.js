@@ -16,11 +16,11 @@ function Start () {
     audio2 = aSources[1];
     audio3 = aSources[2];
     audio1.clip = boxAgainstCreature; 
-    audio1.volume = 0.3;
+    audio1.volume = 1.0;
     audio2.clip = bouncingSound;
-    audio2.volume = 0.4;
+    audio2.volume = 0.1;
     audio3.clip = idlingSound;
-	audio3.volume = 0.4;
+	audio3.volume = 0.1;
 	
 	controller = GetComponent(ThirdPersonController);
 }
